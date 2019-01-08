@@ -63,7 +63,19 @@ const getStyleLoaders = (cssOptions, preProcessor) => {
     },
   ];
   if (preProcessor) {
-    loaders.push(require.resolve(preProcessor));
+    let loader = require.resolve(preProcessor)
+    if (preProcessor === "less-loader") {
+      loader = {
+        loader,
+        options: {
+          modifyVars: {
+            'primary-color': '#f9c700'
+          },
+          javascriptEnabled: true,
+        }
+      }
+    }
+    loaders.push(loader);
   }
   return loaders;
 };
@@ -314,7 +326,7 @@ module.exports = {
           {
             test: lessRegex,
             exclude: lessModuleRegex,
-            use: getStyleLoaders({ importLoaders: 2 }, 'less-loader'),
+            use: getStyleLoaders({ importLoaders: 2}, 'less-loader'),
           },
           {
             test: lessModuleRegex,
