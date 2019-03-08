@@ -23,22 +23,22 @@ export default class Header extends React.Component {
             })
 
         }, 1000)
-        this.getWeatherAPIData();
+        //this.getWeatherAPIData();
     }
 
-    getWeatherAPIData() {
-        axios.jsonp({
-            url: 'http://api.map.baidu.com/telematics/v3/weather?location=beijing&output=json&ak=3p49MVra6urFRGOT9s8UBWr2'
-        }).then((res) => {
-            if (res.status === 'success') {
-                let data = res.results[0].weather_data[0];
-                this.setState({
-                    dayPictureUrl: data.dayPictureUrl,
-                    weather: data.weather
-                })
-            }
-        })
-    }
+    // getWeatherAPIData() {
+    //     axios.jsonp({
+    //         url: 'http://api.map.baidu.com/telematics/v3/weather?location=beijing&output=json&ak=8BB7F0E5C9C77BD6B9B655DB928B74B6E2D838FD'
+    //     }).then((res) => {
+    //         if (res.status === 'success') {
+    //             let data = res.results[0].weather_data[0];
+    //             this.setState({
+    //                 dayPictureUrl: data.dayPictureUrl,
+    //                 weather: data.weather
+    //             })
+    //         }
+    //     })
+    // }
 
     render() {
         return (
@@ -54,10 +54,10 @@ export default class Header extends React.Component {
                         首页
                     </Col>
                     <Col span={20} className='weather'>
-                        <span className='date'>{this.state.sysTime}</span>
+                        {/* <span className='date'>{this.state.sysTime}</span>
                         <span className='weather-img'>
                             <img src={this.state.dayPictureUrl} />
-                        </span>
+                        </span> */}
                         <span className='weather-detail'>
                             {this.state.weather}
                         </span>
