@@ -41,28 +41,45 @@ export default class Header extends React.Component {
     // }
 
     render() {
+        let menuType = this.props.menutype;
         return (
             <div className='header'>
                 <Row className='header-top'>
-                    <Col span={24}>
+                    {
+                        menuType
+                            ?
+                            <Col span={6} className='logo'>
+                                <img src='/assets/logo-ant.svg' />
+                                <span>bike通用管理系统</span>
+                            </Col>
+                            :
+                            null
+                    }
+                    <Col span={menuType?18:24}>
                         <span>hello,{this.state.username}</span>
                         <a>退出</a>
                     </Col>
                 </Row>
-                <Row className='breadcrumb'>
-                    <Col span={4} className='breadcrumb-title'>
-                        首页
-                    </Col>
-                    <Col span={20} className='weather'>
-                        {/* <span className='date'>{this.state.sysTime}</span>
-                        <span className='weather-img'>
-                            <img src={this.state.dayPictureUrl} />
-                        </span> */}
-                        <span className='weather-detail'>
-                            {this.state.weather}
-                        </span>
-                    </Col>
-                </Row>
+                {
+                    menuType ?
+                        null
+                        :
+                        <Row className='breadcrumb'>
+                            <Col span={4} className='breadcrumb-title'>
+                                首页
+                            </Col>
+                            <Col span={20} className='weather'>
+                                {/* <span className='date'>{this.state.sysTime}</span>
+                                <span className='weather-img'>
+                                    <img src={this.state.dayPictureUrl} />
+                                </span> */}
+                                <span className='weather-detail'>
+                                    {this.state.weather}
+                                </span>
+                            </Col>
+                        </Row>
+                }
+
             </div>
         )
     }

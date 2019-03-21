@@ -1,5 +1,17 @@
 @import '../style/default.less';
 
+ul,li{
+    list-style: none;
+}
+.clearfix{
+    &::after{
+        content: ' ';
+        clear: both;
+        display: block;
+        visibility: hidden;
+    }
+
+}
 .contianer{
     display: flex;
 
