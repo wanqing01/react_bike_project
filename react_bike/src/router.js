@@ -23,17 +23,17 @@ export default class IRouter extends React.Component {
                 <div>
                     <App>
                         <Route path='/login' component={Login} />
-                        <Route path='/admin' render={() =>
+                        <Route path='/' render={() =>
                             <Admin>
                                 <Switch>
-                                    <Route exact={true} path='/admin/home' component={Home} />
-                                    <Route path='/admin/ui/buttons' component={Buttons} />
-                                    <Route path='/admin/form/login' component={LoginForm} />
-                                    <Route path='/admin/form/reg' component={RegisterForm} />
-                                    <Route path='/admin/table/basic' component={BasicTable} />
-                                    <Route path='/admin/table/high' component={HighTable} />
-                                    <Route path='/admin/city' component={City} />
-                                    <Route path='/admin/order' component={Order} />
+                                    <Route path='/home' component={Home} />
+                                    <Route path='/ui/buttons' component={Buttons} />
+                                    <Route path='/form/login' component={LoginForm} />
+                                    <Route path='/form/reg' component={RegisterForm} />
+                                    <Route path='/table/basic' component={BasicTable} />
+                                    <Route path='/table/high' component={HighTable} />
+                                    <Route path='/city' component={City} />
+                                    <Route path='/order' component={Order} />
                                     <Route component={NoMatch} />
                                 </Switch>
                             </Admin>
